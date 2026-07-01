@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP 10 CAST([Package ID (Package) (Package)] AS NVARCHAR) AS package_id\n      ,CAST([Total Amount] AS DECIMAL) AS total_amt\n      ,CAST([Created On] AS datetime) AS created_on\n      ,CAST([Modified On] AS DATETIME) AS modified_on\n      ,CAST([Quote ID] AS NVARCHAR) AS quote_id\n      ,CAST([Contract ID] AS NVARCHAR) AS contract_id\n      ,CAST([Approval Status] AS NVARCHAR) AS approval_status\n      ,CAST([RPP Margin%] AS DECIMAL) AS rpp_margin\n      ,CAST([Account On Creation] AS NVARCHAR)AS account_name\n      ,CAST([Version No] AS BIGINT) AS version_no\n      ,CAST([Quotation Status] AS NVARCHAR)  AS quotation_status\n      ,CAST([Chopped Date] AS DATETIME) AS chopped_date\n      ,CAST([Down Payment Received Date] AS DATETIME) AS down_payment_rcv_date\n      ,CAST([Order Date] AS DATETIME) AS order_date\n      ,CAST([VAT Tax Rate] AS DECIMAL) AS vat_tax_rate\n      ,CAST([Account Type on creation] AS NVARCHAR )AS acc_type_on_creation\n      ,CAST([Pricing Approved Date] AS DATETIME) AS pricing_approved_date\n      ,[Company] AS company_name\n      ,[Cost Centre] AS cost_center_code\n      ,[Down Payment Type] AS down_payment_type\n      ,[If Bid] AS if_bid\n      ,[If Chopped] AS if_chopped\n      ,[If Down Payment Received] AS if_down_payment_rcv\n      ,[If standard Legal Term] AS if_std_legal_term\n      ,LEFT([Package],100) AS package_name\n      ,[Owner] AS owner\n      ,[Payment Term Type] AS payment_term_type\n      ,[Project Name] AS project_name\n      ,[SAP Area Code] AS sap_area_code\n      ,[SAP Branch Code] AS sap_branch_code\n      ,[SAP SO Number] AS sap_so_number\n      ,[Green Channel] AS green_channel\n      ,[Key Account/Stock Dealer Agreement] AS key_account\n      ,[MSP Margin%] AS msp_margin\n      ,[Standard Cost %] AS std_cost\n      ,[TP Margin%] AS tp_margin\n      ,[utc_package]\n      ,[ownerid] \t  \n\t  ,'@{pipeline().parameters.fileName}' AS [meta_source]\n      ,GETDATE() AS [meta_creation_date]\n      ,'@{pipeline().parameters.source}' AS [meta_creation_by]\n\t  ,[migrated rppmargin] AS [migrated rppmargin]\n  ,[owner code] AS [owner_code]\n  ,[project code] AS [project_code]\n  ,[quotation id] AS [quotation_id]\n  ,[Account Code] AS [Account_Code]\n  FROM [dbo].[Quotation-advanced find-BI (GM)]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "crm_db_prd",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
